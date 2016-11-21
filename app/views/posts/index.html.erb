@@ -1,0 +1,8 @@
+<h1>Index Page</h1>
+<% @posts.each do |post| %>
+    <p>
+        Title: <%= post.title %> <br />
+        Content: <%= post.content %> <br />
+        <%= link_to "Edit", edit_post_path(post) %>
+    </p>
+<% end %>

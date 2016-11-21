@@ -1,4 +1,4 @@
-class CreatePosts < ActiveRecord::Migration
+rakclass CreatePosts < ActiveRecord::Migration
   def change
     create_table :posts do |t|
       t.string :title
