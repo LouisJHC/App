@@ -1,8 +1,9 @@
-<h1>Index Page</h1>
+<%= link_to 'Make a Post', new_post_path %>
 <% @posts.each do |post| %>
     <p>
-        Title: <%= post.title %> <br />
+        Title: <%= link_to post.title, post_path(post) %> <br />
         Content: <%= post.content %> <br />
         <%= link_to "Edit", edit_post_path(post) %>
+        <%= link_to "Delete", post, method: :delete, confirm: "Are you sure you want to delete?" %>
     </p>
 <% end %>
