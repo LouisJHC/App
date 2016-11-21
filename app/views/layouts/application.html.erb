@@ -8,7 +8,21 @@
 </head>
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
+       
 <body>
+        <div id="side">
+            <div id="logo">
+                <%= link_to root_path do %>
+                    <%= link_to(image_tag("SFU logo.jpg", :alt =>"home image", :height => 100, :width => 150)) %>
+            </div>
+            <ul>
+                <li class="category">Delivery King</li>
+                <li><%= link_to "Website", root_path %></li>
+                <li>About us</li>
+            </ul>
+                <% end %>
+        </div>
+    
 
 <%= yield %>
 
