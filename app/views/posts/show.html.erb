@@ -1,12 +1,14 @@
-<div id="post_content">
-    <h1 class = "title">
-        <%= @post.title %>
-    </h1>
-    <p class = "body">
-        <%= @post.content %>
-    </p>
-    <p class = "date"> 
-        Created <%= time_ago_in_words(@post.created_at) %> ago
-    </p>
-    <%= link_to "Home", posts_path %>
+<div class = "center-main">
+    <div id="post_content">
+        <h1 class = "title">
+            <%= @post.title %>
+        </h1>
+        <p class = "body">
+            <%= @post.content %>
+        </p>
+        <p class = "date"> 
+            Created <%= time_ago_in_words(@post.created_at) %> ago
+        </p>
+        <%= link_to "Home", posts_path %>
+    </div>
 </div>
