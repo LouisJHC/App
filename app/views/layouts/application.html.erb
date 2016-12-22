@@ -19,21 +19,34 @@
 		<ul>
 			<li class="category">Delivery King</li>
 			<li><%= link_to "Website", root_path %></li>
-			<li><%= link_to "About", root_path %></li>
+			<li><%= link_to "About", about_path %></li>
 		</ul>
-        
-        <p class="sign_in">Admin Login</p>
+        <% if !user_signed_in? %>
+            <p class="sign_in">Admin Login</p>
+        <% end %>
     </div>
     
     <div id="main_content">
         <div id="header">
-            <p>All Posts</p>
-            
-            <div class="buttons">
-                <button class="button"><%= link_to "Register Business", new_post_path %></button>
-                <button class="button">Log Out</button>
-            </div>
-        </div>
+            <% if current_page?(root_path) %>
+                <p>All menu</p>
+            <% elsif current_page?(about_path) %>
+                <p>About</p>
+            <% else %>
+             <%= link_to "Back to All menues", root_path %>
+            <% end %>
+            <% if !user_signed_in? %>
+                <div class="buttons">
+                    <button class="button"><%= link_to "Sign Up", new_user_registration_path %></button>
+                </div>
+            <% end %>
+            <% if user_signed_in? %>
+                <div class="buttons">
+                        <button class="button"><%= link_to "Register Business", new_post_path %></button>
+                        <button class="button">Log Out</button>
+                    </div>
+            <% end %>
+             </div>
     
     <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: "alert") %>
