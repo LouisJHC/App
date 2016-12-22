@@ -1,20 +1,10 @@
-<div class = "center-main">
-<%= link_to 'Make a Post', new_post_path %>
-<% @posts.each do |post| %>
-        <div class="post_wrapper">
-            <h2 class = "title">
-                Title: <%= link_to post.title, post_path(post) %> <br />
-            </h2>
-            <p class = "body">
-                Content: <%= post.content %>
-            </p>
-            <p class = "date">
-                This post was created at <%= post.created_at.strftime("%B, %d, %y") %>
-            </p>
-        </div>
-            <%= link_to "Edit", edit_post_path(post) %>
-            <%= link_to "Delete", post, method: :delete, confirm: "Are you sure you want to delete?" %>
-        
+<% @posts.each do |p| %>
+    <div class = "post_wrapper">
+        <h2 class = "title">
+            <%= link_to p.title, p %>
+        </h2>
+        <p class = "date">
+            <%= p.created_at.strftime("%B %d, %Y") %>
+        </p>
+    </div>
 <% end %>
-
-</div>

@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
 </head>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-       
 <body>
-    <div class ="header">
-        <div id="logo">
-            <%= link_to root_path do %>
-            <%= link_to(image_tag("SFU logo.jpg", :alt =>"home image", :height => 50, :width => 80)) %>
-        </div>
-        <ul>
-            <li class="category">Delivery King</li>
-            <li><%= link_to "Website", root_path %></li>
-            <li>About us</li>
-        </ul>
-        <% end %>
+	<div id="sidebar">
+		<div id="logo">
+			<%= link_to root_path do %>
+				 <%= link_to(image_tag("SFU logo.jpg", :alt =>"home image", :height => 110, :width => 110)) %>
+			<% end %>
+		</div>
+
+		<ul>
+			<li class="category">Delivery King</li>
+			<li><%= link_to "Website", root_path %></li>
+			<li><%= link_to "About", root_path %></li>
+		</ul>
+        
+        <p class="sign_in">Admin Login</p>
     </div>
-
-    <div id="spacer"></div>   
-       
-<%= yield %>
     
-    <div id="spacer"></div>
-
-    <div class = "footer">
-        <p>This is <a href="http://google.ca">Google</a></p>
+    <div id="main_content">
+        <div id="header">
+            <p>All Posts</p>
+            
+            <div class="buttons">
+                <button class="button"><%= link_to "Register Business", new_post_path %></button>
+                <button class="button">Log Out</button>
+            </div>
+        </div>
+    
+    <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert") %>
+    <% end %>
+    <%= yield %>
     </div>
 
 </body>
