@@ -1,6 +1,15 @@
-
-   <div id="wrap">
+<div id="wrap">
     <%= form_for @post do |f| %>
+	<% if @post.errors.any? %>
+		<div id="errors">
+			<h2>Could not submit due to <%= pluralize(@post.errors.count, "error") %>.</h2>
+			<ul>
+				<% @post.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
         <p>
             <%= f.label :title %> <br />
             <%= f.text_field :title %> <br />
@@ -11,5 +20,4 @@
             <%= f.submit "finish registration" %>
         </p>
     <% end %>
-    </div>
 </div>
