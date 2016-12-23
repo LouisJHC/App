@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_scope :user do
     get "/sign_in" => "devise/sessions#new" # custom path to login/sign_in
     get "/sign_up" => "devise/registrations#new", as: "new_user_registration" # custom path to sign_up/registration
@@ -9,6 +10,10 @@ Rails.application.routes.draw do
   end
   root 'posts#index'
   get '/about', to: 'pages#about'
+  
+  resource :searches
+  get '/search', to: 'searches#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
