@@ -46,4 +46,3 @@ end
 gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'geocoder'
-gem 'gmaps4rails'
