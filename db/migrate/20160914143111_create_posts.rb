@@ -3,6 +3,9 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.text :content
+      t.string :address
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps null: false
     end

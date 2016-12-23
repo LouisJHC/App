@@ -5,6 +5,15 @@
         <p class = "body">
             <%= @post.content %>
         </p>
+        <p class = "address">
+            <%= @post.address %>
+        </p>
+        <p class = "latitude">
+            <%= @post.latitude %>
+        </p>
+        <p class = "longitude">
+            <%= @post.longitude %>
+        </p>
         <p class = "date"> 
             Created <%= time_ago_in_words(@post.created_at) %> ago
         </p>
