@@ -46,8 +46,4 @@ end
 gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
 gem 'geocoder'
-<<<<<<< HEAD
 gem 'bootstrap-generators'
-=======
-gem 'gmaps4rails'
->>>>>>> parent of e1b636e... Restuarant location on Google map

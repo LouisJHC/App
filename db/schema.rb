@@ -33,14 +33,6 @@ ActiveRecord::Schema.define(version: 20161223210008) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "searches", force: :cascade do |t|
-    t.string   "search_address"
-    t.float    "search_latitude"
-    t.float    "search_longitude"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
