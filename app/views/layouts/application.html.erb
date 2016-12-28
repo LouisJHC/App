@@ -39,12 +39,13 @@
             <% if !user_signed_in? %>
                 <div class="buttons">
                     <button class="button"><%= link_to "Sign Up", new_user_registration_path %></button>
+                    <button class="button"><%= link_to "Sign In", new_user_session_path %></button>
                 </div>
             <% end %>
             <% if user_signed_in? %>
                 <div class="buttons">
                         <button class="button"><%= link_to "Register Business", new_post_path %></button>
-                        <button class="button">Log Out</button>
+                        <button class="button"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></button>
                     </div>
             <% end %>
             </div>
