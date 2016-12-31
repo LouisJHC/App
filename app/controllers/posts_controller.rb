@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     end
     def create
         @post = current_user.posts.build(post_params)
+        @post.category_id = params[:category_id]
         if @post.save
             redirect_to @post
         else
@@ -20,6 +21,7 @@ class PostsController < ApplicationController
     end
     def edit
         @post = Post.find(params[:id])
+        @categories = Category.all.map{|a| [a.name, a.id]}
     end
     def destroy
         @post = Post.find(params[:id])
@@ -27,7 +29,9 @@ class PostsController < ApplicationController
         redirect_to root_path
     end
     def update
+        @post.category_id = params[:category_id]
         @post = Post.find(params[:id])
+        
         if @post.update(post_params)
             redirect_to posts_path
         else
@@ -37,6 +41,6 @@ class PostsController < ApplicationController
     
     private
     def post_params
-        params.require(:post).permit(:title, :content, :address, :latitude, :longitude)
+        params.require(:post).permit(:title, :content, :address, :latitude, :longitude, :category_id)
     end
 end

@@ -1,7 +1,9 @@
-<div id="post_content">
         <h1 class = "title">
             <%= @post.title %>
         </h1>
+        <h3>
+            <%= @post.category.name %>
+        </h3>
         <p class = "body">
             <%= @post.content %>
         </p>
@@ -40,10 +42,8 @@
         <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1eXQAnmglWeRW-Q6UuaVa7_ktyuB9KbM&callback=initMap">
         </script>
-     
-        <p class = "date"> 
+       
             Created <%= time_ago_in_words(@post.created_at) %> ago
-        </p>
         <%= link_to "Home", posts_path %>
         <% if user_signed_in? %>
             <% if @post.user_id == current_user.id %>
@@ -53,7 +53,7 @@
             <% end %>
         <% end %>
         
-        <div id="comments">
+
             <h2><%= @post.comments.count %> Comments</h2>
             <%= render @post.comments %>
             
