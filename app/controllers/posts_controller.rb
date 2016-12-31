@@ -1,7 +1,12 @@
 class PostsController < ApplicationController
    before_action :authenticate_user!, except: [:index, :show]
     def index
-        @posts = Post.all
+        if params[:category].blank?
+            @posts = Post.all
+        else
+            @category_id = Category.find_by(name: params[:category]).id
+            @posts = Post.where(:category_id => @category_id)
+        end
     end
     def new
          @post = current_user.posts.build
@@ -29,8 +34,8 @@ class PostsController < ApplicationController
         redirect_to root_path
     end
     def update
-        @post.category_id = params[:category_id]
         @post = Post.find(params[:id])
+        @post.category_id = params[:category_id]
         
         if @post.update(post_params)
             redirect_to posts_path
