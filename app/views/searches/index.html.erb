@@ -1,4 +1,4 @@
-<%= form_tag(searches_path, :method => "get") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Restaurant" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
+<div class="container">
+  <p><%= link_to "Use location", searches_location_path %></p>
+  <p><%= link_to "Use address", searches_address_path %></p>
+</div>

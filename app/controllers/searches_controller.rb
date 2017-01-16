@@ -1,10 +1,13 @@
 class SearchesController < ApplicationController
-    def index
-        @searches = Search.all
-        if params[:search]
-            @searches = Search.search(params[:search]).order("created_at DESC")
-        else
-            @searches = Search.all.order("created_at DESC")
-        end
-    end
+def index
+end
+
+def location
+end
+
+def address
+    @search = params[:user_search]
+    @post = Post.all
+end
+
 end

@@ -35,11 +35,21 @@ ActiveRecord::Schema.define(version: 20161228013502) do
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
+    t.float    "distance"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
     t.integer  "user_id"
   end
+
+  create_table "searches", force: :cascade do |t|
+    t.string   "user_search"
+    t.integer  "post_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "searches", ["post_id"], name: "index_searches_on_post_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

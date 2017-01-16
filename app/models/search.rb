@@ -1,12 +1,11 @@
 class Search < ActiveRecord::Base
-    def self.search(search)
-        if search
-            find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-        else
-            find(:all)
-        end
-    end
+    # def self.search(search)
+    #     # return scoped unless search.present?
+    #     # where(['user_search LIKE ?', "%#{search}%"])
+    #     return "#{search}"
+    # end
+    belongs_to :post
     
-    # geocoded_by :search_address
-    # after_validation :geocode
+    validates :user_search, presence: true
+    
 end

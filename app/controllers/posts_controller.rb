@@ -46,6 +46,7 @@ class PostsController < ApplicationController
     
     private
     def post_params
-        params.require(:post).permit(:title, :content, :address, :latitude, :longitude, :category_id)
+        params.require(:post).permit(:title, :content, :address, :latitude, 
+        :longitude, :category_id, :distance)
     end
 end
